@@ -5,7 +5,7 @@ class StreamCreate extends Component {
   renderError({ error, touched }) {
     if (touched && error) {
       return (
-        <div className='ui error message'>
+        <div className='ui error mini message'>
           <div className='header'>
             {error}
           </div>
@@ -15,8 +15,9 @@ class StreamCreate extends Component {
   }
 
   renderInput = ({ input, label, meta }) => {
+    const className = `field ${meta.error && meta.touched ? 'error': ''}`;
     return (
-      <div className='field'>
+      <div className={className}>
         <label>{label}</label>
         <input {...input} autoComplete='off' />
         {this.renderError(meta)}
